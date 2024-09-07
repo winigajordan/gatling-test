@@ -1,19 +1,15 @@
 package prodApi;
 
-import java.time.Duration;
-import java.util.*;
 
 import io.gatling.javaapi.core.*;
 import io.gatling.javaapi.http.*;
-import io.gatling.javaapi.jdbc.*;
 
 import static io.gatling.javaapi.core.CoreDsl.*;
 import static io.gatling.javaapi.http.HttpDsl.*;
-import static io.gatling.javaapi.jdbc.JdbcDsl.*;
 
 public class ProdApi extends Simulation {
 
-  private HttpProtocolBuilder httpProtocol = http
+  private final HttpProtocolBuilder httpProtocol = http
     .baseUrl("https://66da59bbf47a05d55be4998e.mockapi.io")
     .inferHtmlResources()
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7")
@@ -24,7 +20,7 @@ public class ProdApi extends Simulation {
 
 
 
-  private ScenarioBuilder scn = scenario("ProdApi")
+  private final ScenarioBuilder scn = scenario("ProdApi")
           .exec(
                   http("All product")
                           .get("/test-vegeta/prod")
