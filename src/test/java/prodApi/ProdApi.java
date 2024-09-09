@@ -40,13 +40,9 @@ public class ProdApi extends Simulation {
 
           .exec(
                   http("Update Product ")
-                          .put("/test-vegeta/prod/1")
+                          .put("/test-vegeta/prod/10")
                           .body(StringBody("{ \"libelle\": \"Product Updated\", \"prix\": 1500 }"))
                           .asJson() // Indiquer que le corps de la requête est du JSON
-          ).pause(1)
-          .exec(
-                  http("Delete Product with id 1")
-                          .delete("/test-vegeta/prod/1")
           ).pause(1);
 
   {
